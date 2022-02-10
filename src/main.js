@@ -5,38 +5,82 @@ document.addEventListener('DOMContentLoaded', () => {
     button1.addEventListener('click', () => {
         console.log( document);
         document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
-        document.querySelector("#qaBox").style.visibility = "visible";
-        document.querySelector("#answerButton").style.visibility = "visible";
-        document.querySelector("#answerText").style.visibility = "hidden";
-        document.querySelector("#boxWrapper").style.visibility = "hidden";
+        document.querySelector("#qaBox").style.display = "inline";
+        document.querySelector("#answerButton").style.display = "inline";
+        document.querySelector("#answerText").style.display = "none";
+        document.querySelector("#boxWrapper").style.display = "none";
+    
+        //jumping function
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
         //document.querySelector("#answerWrapper").innerText;
         getFacts1();
     });
 
     button2.addEventListener('click', () => {
         document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
-        document.querySelector("#qaBox").style.visibility = "visible";
-        document.querySelector("#answerButton").style.visibility = "visible";
-        document.querySelector("#answerText").style.visibility = "hidden";
-        document.querySelector("#boxWrapper").style.visibility = "hidden";
+        document.querySelector("#qaBox").style.display = "inline";
+        document.querySelector("#answerButton").style.display = "inline";
+        document.querySelector("#answerText").style.display = "none";
+        document.querySelector("#boxWrapper").style.display = "none";
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
         getFacts2();
     });
 
     button3.addEventListener('click', () => {
         document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
-        document.querySelector("#qaBox").style.visibility = "visible";
-        document.querySelector("#answerButton").style.visibility = "visible";
-        document.querySelector("#answerText").style.visibility = "hidden";
-        document.querySelector("#boxWrapper").style.visibility = "hidden";
+        document.querySelector("#qaBox").style.display = "inline";
+        document.querySelector("#answerButton").style.display = "inline";
+        document.querySelector("#answerText").style.display = "none";
+        document.querySelector("#boxWrapper").style.display = "none";
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
         getFacts3();
     });
 
     button4.addEventListener('click', () => {
-        document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
-        document.querySelector("#qaBox").style.visibility = "visible";
-        document.querySelector("#answerButton").style.visibility = "visible";
-        document.querySelector("#answerText").style.visibility = "hidden";
-        document.querySelector("#boxWrapper").style.visibility = "hidden";
+        document.querySelector("#catVoice1").play();
+        let randomNum = Math.floor(Math.random()*4);
+        while(randomNum == document.querySelector("body").style.backgroundImage.charAt(document.querySelector("body").style.backgroundImage.length - 5)){
+            randomNum = Math.floor(Math.random()*4);
+        }
+        console.log(document.querySelector("body").style.background)
+        console.log(document.querySelector("body").style.background === "")
+        if(document.querySelector("body").style.backgroundImage === "") {
+            document.querySelector("body").style.backgroundImage = `url(src/assets/catGIFs/cat${randomNum}.gif)`
+        }
+        else{
+            document.querySelector("body").style.backgroundImage = `url(src/assets/catGIFs/cat${randomNum}.gif)`
+            //document.querySelector("body").style.background = document.querySelector("body").style.background + `, url(src/assets/catGIFs/cat${randomNum}.gif)`;
+        }
+        
+        console.log(document.querySelector("body").style.backgroundImage)
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
         getFacts4();
     });
 
@@ -44,10 +88,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#gobackButton").addEventListener('click', () => {
         //make the answer button invisible
         document.querySelector("#cat").setAttribute("src","src/assets/catL.PNG");
-        document.querySelector("#qaBox").style.visibility = "hidden";
-        document.querySelector("#answerText").style.visibility = "hidden";
-        document.querySelector("#gobackButton").style.visibility = "hidden";
-        document.querySelector("#boxWrapper").style.visibility = "visible";
+        document.querySelector("#qaBox").style.display = "none";
+        document.querySelector("#answerText").style.display = "none";
+        document.querySelector("#gobackButton").style.display = "none";
+        document.querySelector("#boxWrapper").style.display = "inline";
     })
 
 });
@@ -63,17 +107,25 @@ function getFacts1(){
     //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
-        document.querySelector("#answerButton").style.visibility = "hidden";
-        document.querySelector("#answerText").style.visibility = "visible";
-        document.querySelector("#gobackButton").style.visibility = "visible";
+        document.querySelector("#answerButton").style.display = "none";
+        document.querySelector("#answerText").style.display = "inline";
+        document.querySelector("#gobackButton").style.display = "inline";
         document.querySelector("#answerText").innerText = animals[randNum][1];
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.left = 350 + (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
 
     })
 }
 
 function getFacts2(){
     //console.log(2);
-    //document.querySelector("#boxWrapper").style.visibility = "hidden";
+    //document.querySelector("#boxWrapper").style.display = "none";
     //document.querySelector("#boxWrapper").remove();
     let randNum = Math.floor(Math.random() * coding.length);
     //document.querySelector('body').innerText = "button 2 again"
@@ -82,10 +134,18 @@ function getFacts2(){
     //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
-        document.querySelector("#answerButton").style.visibility = "hidden";
-        document.querySelector("#answerText").style.visibility = "visible";
-        document.querySelector("#gobackButton").style.visibility = "visible";
+        document.querySelector("#answerButton").style.display = "none";
+        document.querySelector("#answerText").style.display = "inline";
+        document.querySelector("#gobackButton").style.display = "inline";
         document.querySelector("#answerText").innerText = coding[randNum][1];
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.left = 350 + (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
 
     });
     
@@ -102,11 +162,19 @@ function getFacts3(){
     //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
-        document.querySelector("#answerButton").style.visibility = "hidden";
-        document.querySelector("#answerText").style.visibility = "visible";
-        document.querySelector("#gobackButton").style.visibility = "visible";
+        document.querySelector("#answerButton").style.display = "none";
+        document.querySelector("#answerText").style.display = "inline";
+        document.querySelector("#gobackButton").style.display = "inline";
         document.querySelector("#answerText").innerText = geography[randNum][1];
         //console.log(document.querySelector("#answerWrapper").innerText);
+
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#catBox").style.left = 350 + (-0.1 * x * (x - 50)) + 'px';
+
+        if(x >= 50) clearInterval(interval);
+        }, 20);
 
     });
     
@@ -161,7 +229,7 @@ function initialize(){
     button1.innerText = "Animal Facts";
     button2.innerText = "Coding Facts";
     button3.innerText = "Geography Facts";
-    button4.innerText = "Mystery";
+    button4.innerText = "Something Fun";
     
     buttonBox1.appendChild(button1);
     buttonBox2.appendChild(button2);
@@ -197,12 +265,12 @@ function initialize(){
     answerButton.setAttribute("id", "answerButton")
     answerWrapper.appendChild(answerButton);
     answerButton.innerText = "Reveal answer";
-    answerButton.style.visibility = "hidden";
+    answerButton.style.display = "none";
 
     const answerText = document.createElement('div');
     answerText.setAttribute("id", "answerText")
     answerWrapper.appendChild(answerText);
-    answerText.style.visibility = "hidden";
+    answerText.style.display = "none";
 
     //create a go back button after answer revel is clicked
     const gobackButton = document.createElement('button');
@@ -211,18 +279,27 @@ function initialize(){
     answerWrapper.appendChild(gobackButton);
     gobackButton.innerText = "Go back"
     answerWrapper.appendChild(gobackButton);
-    gobackButton.style.visibility = "hidden";
+    gobackButton.style.display = "none";
 
     const qaBox = document.createElement('div');
     qaBox.setAttribute("id","qaBox");    
     qaBox.appendChild(questionBox);
     qaBox.appendChild(answerWrapper);
     board.appendChild(qaBox);
-    document.querySelector("#qaBox").style.visibility = "hidden";
+    qaBox.style.display = "none";
 
     //add some audio to the mystery button
-    const audio = document.createElement('audio');
-    audio.setAttribute("src", "src/assets/audio1");
+    const catVoice1 = document.createElement('audio');
+    catVoice1.setAttribute("src", "src/assets/cat1.mp3");
+    catVoice1.setAttribute("id", "catVoice1");
+    button4.append(catVoice1);
+    
+    // const catDanceBox = document.createElement('div')
+    // const catDance = document.createElement('img');
+    // catDance.setAttribute("src","src/assets/danceCat.gif");
+    // catDanceBox.appendChild(catDance);
+    // board.appendChild(catDanceBox);
+    // catDanceBox.display = "none";
    
     
     

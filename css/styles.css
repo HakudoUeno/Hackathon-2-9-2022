@@ -1,5 +1,5 @@
 body{
-
+    background-repeat: repeat;
 }
 
 .ButtonClass{
@@ -19,8 +19,8 @@ body{
     position: relative;
     background-position: center;
     float:left;
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
     background-image: url("../src/assets/bubbleL.PNG");
     background-size: cover;
     left: 8%;
@@ -46,23 +46,24 @@ body{
 }
 
 #buttonBox4{
-    position: absolute;
-    left: 61%;
+    position: relative;
+    left: 55%;
     top: 37%;
 }
 
 #qaBox{
-    position: absolute;
+    position: relative;
     background-position: center;
     float:left;
-    height: 300px;
-    width: 300px;
+    height: 500px;
+    width: 500px;
     background-image: url("../src/assets/bubbleR.PNG");
     background-size: cover;
     left: 55%;
 }
 
 #catBox{
+    display:inline;
     position: absolute;
     margin-top: 200px;
     float:left;
@@ -72,36 +73,38 @@ body{
 }
 
 #questionBox{
-    position: absolute;
-    width: 200px;
-    top: 16%;
+    /* position: absolute; */
+    width: 300px;
+    margin-top: 22%;
+    margin-left: 20%;
     left: 17%;
-}
+} 
 
 #answerWrapper{
-    position: absolute;
+    /* display:block;
+    position: relative; */
     width: 200px;
-    top: 55%;
+    margin-top: 20px;
+    margin-left: 30%;
     left: 15%;
 }
 
-#answerButton{
+/* #answerButton{
     position: absolute;
     left: 0%;
-}
+} */
 
 #gobackButton{
-    position: absolute;
-    right: 0%;
+    margin-left: 20%;
 }
-
+/* 
 #answerText{
     text-align: center;
 }
 
 
 #cat{
-}
+} */
 
 
 
