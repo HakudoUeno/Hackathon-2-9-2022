@@ -1,0 +1,66 @@
+
+#boxWrapper{
+    position: relative;
+    background-position: center;
+    float:left;
+    height: 300px;
+    width: 300px;
+    background-image: url("../src/assets/bubbleL.PNG");
+    background-size: cover;
+    left: 8%;
+
+}
+
+#buttonBox1{
+
+}
+
+#buttonBox2{
+
+}
+
+#buttonBox3{
+
+}
+
+#buttonBox4{
+
+}
+
+#qaBox{
+    position: relative;
+    background-position: center;
+    float:left;
+    height: 300px;
+    width: 300px;
+    background-image: url("../src/assets/bubbleR.PNG");
+    background-size: cover;
+    right: 15%;
+}
+
+#catBox{
+    position: relative;
+    margin-top: 200px;
+    float:left;
+    height: 300px;
+    width: 300px;
+
+    
+}
+
+#cat{
+}
+
+
+
+  
+
+  
+
+  
+
+
+
+
+  
+
