@@ -1,45 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
     initialize();
 
-    
+    //click event for categories
     button1.addEventListener('click', () => {
         console.log( document);
+        document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
+        document.querySelector("#qaBox").style.visibility = "visible";
         document.querySelector("#answerButton").style.visibility = "visible";
         document.querySelector("#answerText").style.visibility = "hidden";
+        document.querySelector("#boxWrapper").style.visibility = "hidden";
         //document.querySelector("#answerWrapper").innerText;
         getFacts1();
     });
 
     button2.addEventListener('click', () => {
+        document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
+        document.querySelector("#qaBox").style.visibility = "visible";
         document.querySelector("#answerButton").style.visibility = "visible";
         document.querySelector("#answerText").style.visibility = "hidden";
+        document.querySelector("#boxWrapper").style.visibility = "hidden";
         getFacts2();
     });
 
     button3.addEventListener('click', () => {
+        document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
+        document.querySelector("#qaBox").style.visibility = "visible";
         document.querySelector("#answerButton").style.visibility = "visible";
         document.querySelector("#answerText").style.visibility = "hidden";
+        document.querySelector("#boxWrapper").style.visibility = "hidden";
         getFacts3();
     });
 
     button4.addEventListener('click', () => {
+        document.querySelector("#cat").setAttribute("src","src/assets/catR.PNG");
+        document.querySelector("#qaBox").style.visibility = "visible";
         document.querySelector("#answerButton").style.visibility = "visible";
         document.querySelector("#answerText").style.visibility = "hidden";
+        document.querySelector("#boxWrapper").style.visibility = "hidden";
         getFacts4();
     });
 
+    //event listener  for goback button
+    document.querySelector("#gobackButton").addEventListener('click', () => {
+        //make the answer button invisible
+        document.querySelector("#cat").setAttribute("src","src/assets/catL.PNG");
+        document.querySelector("#qaBox").style.visibility = "hidden";
+        document.querySelector("#answerText").style.visibility = "hidden";
+        document.querySelector("#gobackButton").style.visibility = "hidden";
+        document.querySelector("#boxWrapper").style.visibility = "visible";
+    })
+
 });
 
+//functions to get facts appear
 function getFacts1(){
     console.log(1);
     //create a random array index 
     let randNum = Math.floor(Math.random() * animals.length);
     //get a random question in animal facts
     document.querySelector("#questionBox").innerText = animals[randNum][0];
+
+    //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
         document.querySelector("#answerButton").style.visibility = "hidden";
         document.querySelector("#answerText").style.visibility = "visible";
+        document.querySelector("#gobackButton").style.visibility = "visible";
         document.querySelector("#answerText").innerText = animals[randNum][1];
 
     })
@@ -53,10 +79,12 @@ function getFacts2(){
     //document.querySelector('body').innerText = "button 2 again"
 
     document.querySelector("#questionBox").innerText = coding[randNum][0];
+    //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
         document.querySelector("#answerButton").style.visibility = "hidden";
         document.querySelector("#answerText").style.visibility = "visible";
+        document.querySelector("#gobackButton").style.visibility = "visible";
         document.querySelector("#answerText").innerText = coding[randNum][1];
 
     });
@@ -70,10 +98,13 @@ function getFacts3(){
 
 
     document.querySelector("#questionBox").innerText = geography[randNum][0];
+
+    //event listener when clicking reveal answer button
     document.querySelector("#answerButton").addEventListener('click', () => {
         //make the answer button invisible
         document.querySelector("#answerButton").style.visibility = "hidden";
         document.querySelector("#answerText").style.visibility = "visible";
+        document.querySelector("#gobackButton").style.visibility = "visible";
         document.querySelector("#answerText").innerText = geography[randNum][1];
         //console.log(document.querySelector("#answerWrapper").innerText);
 
@@ -106,10 +137,10 @@ function initialize(){
     buttonBox3.setAttribute("id", "buttonBox3");
     buttonBox4.setAttribute("id", "buttonBox4");
     
-    buttonBox1.setAttribute('id', 'box1');
-    buttonBox2.setAttribute('id', 'box2');
-    buttonBox3.setAttribute('id', 'box3');
-    buttonBox4.setAttribute('id', 'box4');
+    // buttonBox1.setAttribute('id', 'box1');
+    // buttonBox2.setAttribute('id', 'box2');
+    // buttonBox3.setAttribute('id', 'box3');
+    // buttonBox4.setAttribute('id', 'box4');
     
     const button1 = document.createElement('button');
     const button2 = document.createElement('button');
@@ -121,6 +152,12 @@ function initialize(){
     button3.setAttribute('id', 'button3');
     button4.setAttribute('id', 'button4');
     
+    button1.setAttribute("class","ButtonClass");
+    button2.setAttribute("class","ButtonClass");
+    button3.setAttribute("class","ButtonClass");
+    button4.setAttribute("class","ButtonClass");
+
+
     button1.innerText = "Animal Facts";
     button2.innerText = "Coding Facts";
     button3.innerText = "Geography Facts";
@@ -140,7 +177,8 @@ function initialize(){
     const catBox = document.createElement('div');
     const cat = document.createElement('img');
     cat.setAttribute("src","src/assets/catL.PNG");
-    cat.setAttribute("id", "catBox")
+    cat.setAttribute("id", "cat")
+    catBox.setAttribute("id", "catBox")
     catBox.appendChild(cat);
     board.appendChild(catBox);
     
@@ -153,9 +191,12 @@ function initialize(){
     //document.querySelector('body').appendChild(answerWrapper);
     answerWrapper.setAttribute("id", "answerWrapper")
 
+    //create a reveal answer button and answer text
     const answerButton = document.createElement('button');
+    answerButton.setAttribute("class","ButtonClass");
     answerButton.setAttribute("id", "answerButton")
     answerWrapper.appendChild(answerButton);
+    answerButton.innerText = "Reveal answer";
     answerButton.style.visibility = "hidden";
 
     const answerText = document.createElement('div');
@@ -163,16 +204,26 @@ function initialize(){
     answerWrapper.appendChild(answerText);
     answerText.style.visibility = "hidden";
 
+    //create a go back button after answer revel is clicked
+    const gobackButton = document.createElement('button');
+    gobackButton.setAttribute("class","ButtonClass");
+    gobackButton.setAttribute("id","gobackButton");
+    answerWrapper.appendChild(gobackButton);
+    gobackButton.innerText = "Go back"
+    answerWrapper.appendChild(gobackButton);
+    gobackButton.style.visibility = "hidden";
+
     const qaBox = document.createElement('div');
     qaBox.setAttribute("id","qaBox");    
     qaBox.appendChild(questionBox);
     qaBox.appendChild(answerWrapper);
     board.appendChild(qaBox);
-;
-    
+    document.querySelector("#qaBox").style.visibility = "hidden";
 
-
-    answerButton.innerText = "Reveal answer"
+    //add some audio to the mystery button
+    const audio = document.createElement('audio');
+    audio.setAttribute("src", "src/assets/audio1");
+   
     
     
 
