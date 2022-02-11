@@ -6,7 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#answerButton").style.visibility = "visible";
         document.querySelector("#answerText").style.visibility = "hidden";
         document.querySelector("#buttonWrapper").style.visibility = "hidden";
-    
+        
+        let x = 0;
+        let interval = setInterval(function() {
+            x++;
+            document.querySelector("#mainCat").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+            if(x >= 50) clearInterval(interval);
+        }, 20);
+        catVoice1.play()
         getFacts1();
     });
 
@@ -17,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#answerText").style.visibility = "hidden";
         document.querySelector("#buttonWrapper").style.visibility = "hidden";
 
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#mainCat").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+        if(x >= 50) clearInterval(interval);
+        }, 20);
+        catVoice1.play()
         getFacts2();
     });
 
@@ -27,6 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector("#answerText").style.visibility = "hidden";
         document.querySelector("#buttonWrapper").style.visibility = "hidden";
 
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#mainCat").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+        if(x >= 50) clearInterval(interval);
+        }, 20);
+        catVoice1.play()
         getFacts3();
     });
 
@@ -47,7 +68,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         console.log(document.querySelector("body").style.backgroundImage)
-
+        let x = 0;
+        let interval = setInterval(function() {
+        x++;
+        document.querySelector("#mainCat").style.top = 50 - (-0.1 * x * (x - 50)) + 'px';
+        if(x >= 50) clearInterval(interval);
+        }, 20);
+        catSong.play();
         document.getElementById('catLogo').setAttribute('href','./src/assets/catGIFs/newLogo.jpg');
     });
 
@@ -194,6 +221,12 @@ function initialize(){
     catVoice1.setAttribute("src", "src/assets/cat1.mp3");
     catVoice1.setAttribute("id", "catVoice1");
     button4.append(catVoice1);
+
+    const catSong = document.createElement('audio');
+    catSong.setAttribute("src", "src/assets/song.mp3");
+    catSong.setAttribute("id", "catSong");
+    catSong.volume = .1;
+    button4.append(catSong);
 
     bodyEle.appendChild(ThreePartContainer);
 }
